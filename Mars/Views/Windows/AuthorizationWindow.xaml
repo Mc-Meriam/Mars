@@ -1,0 +1,171 @@
+﻿<Window x:Class="Mars.Views.Windows.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mars.Views.Windows"
+        mc:Ignorable="d"
+        Title="AuthorizationWindow" 
+        Height="768" Width="1366"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Images/GroundPhone.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="1.4*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Border Width="160" 
+                Height="160" 
+                CornerRadius="100"
+                Margin="0 5 0 0"
+                VerticalAlignment="Top">
+            <Border.Background>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Image Source="/Resources/Icons/IconMes.jpg" Stretch="UniformToFill" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Border.Background>
+        </Border>
+
+        <TextBlock Text="Вход"
+                   FontSize="30"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Margin="0 5 0 5"
+                   FontWeight="Bold">
+
+            <TextBlock.Foreground>
+                <LinearGradientBrush >
+                    <LinearGradientBrush.Transform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="2"/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.Transform>
+                    <GradientStop Color="#FF22A68E"/>
+                    <GradientStop Color="#FFD863DE" Offset="0.564"/>
+                    <GradientStop Color="#FF321B63" Offset="0.967"/>
+                    <GradientStop Color="#FF6331CF" Offset="0.763"/>
+                    <GradientStop Color="#FF51D4CF" Offset="0.315"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <TextBlock Text="Введите логин:"
+                   Foreground="#7B57D1"
+                   Grid.Row="1"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left" 
+                   Margin="484,25,0,0"/>
+        <TextBox Name="LoginTb"
+                 Grid.Row="1"
+                 Height="80"
+                 Width="400"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Bottom" 
+                 Margin="0,0,0,20"/>
+
+        <Border  Grid.Row="1"
+                 Height="160"
+                 Width="600"
+                 VerticalAlignment="Center"
+                 Margin="10 0" 
+                 CornerRadius="30"
+                 Opacity="0.6"
+                 Panel.ZIndex="-4"
+                 BorderBrush="#7B57D1"
+                 BorderThickness="2">
+            <Border.Background>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Image Source="/Resources/Images/GroundMenu.jpg" 
+                               Stretch="Fill" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Border.Background>
+        </Border>
+
+        <TextBlock Text="Введите пароль:"
+           Foreground="#7B57D1"
+           Grid.Row="3"
+           FontSize="20"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left" 
+           Margin="484,25,0,0"/>
+        <PasswordBox Name="PasswordPb"
+                     Grid.Row="3"
+                     PasswordChar="*"
+                 Height="80"
+                 Width="400"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Bottom" 
+                 Margin="0,0,0,20"/>
+
+
+        <Border  Grid.Row="3"
+                 Height="160"
+                 Width="600"
+                 VerticalAlignment="Center"
+                 Margin="10 0" 
+                 CornerRadius="30"
+                 Opacity="0.6"
+                 Panel.ZIndex="-4"
+                 BorderBrush="#7B57D1"
+                 BorderThickness="2">
+            <Border.Background>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Image Source="/Resources/Images/GroundMenu.jpg" 
+                       Stretch="Fill" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Border.Background>
+        </Border>
+
+        <TextBlock Grid.Row="4"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Margin="0,16,0,0">
+                <Hyperlink Name="HL1"
+                           FontSize="20"
+                           Click="HL1_Click"
+                           Foreground="#FF51D4CF">
+                    <Run Text="Регистрация"/>
+                </Hyperlink>
+        </TextBlock>
+
+        <Button Name="LoginBtn"
+                Content="Войти"
+                Grid.Row="5"
+                Height="90"
+                Width="200"
+                FontWeight="Bold"
+                FontSize="40"
+                Background="White" 
+                Click="LoginBtn_Click">
+            <Button.Foreground>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FF22A68E"/>
+                    <GradientStop Color="#FFD863DE" Offset="0.564"/>
+                    <GradientStop Color="#FF321B63" Offset="0.967"/>
+                    <GradientStop Color="#FF6331CF" Offset="0.763"/>
+                    <GradientStop Color="#FF51D4CF" Offset="0.315"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+    </Grid>
+</Window>

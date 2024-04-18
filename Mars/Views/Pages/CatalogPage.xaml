@@ -1,0 +1,66 @@
+﻿<Page x:Class="Mars.Views.Pages.CatalogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Mars.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="752" d:DesignWidth="1241"
+      Title="CatalogPage">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBox Name="SearchTb" 
+                 TextChanged="SearchTb_TextChanged"
+                 Height="80" 
+                 Margin="0,0,611,0"/>
+
+
+        <ComboBox Name="CategoryCmb"
+                  Height="80"
+                  Width="580"
+                  HorizontalAlignment="Left" 
+                  Margin="623,0,0,0"/>
+
+        <ListView Name="CatalogLv"
+                  Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10" Width="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="310" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Image Width="400" Grid.Row="1" 
+                               Stretch="UniformToFill" 
+                               HorizontalAlignment="Center" 
+                               Margin="5">
+                            <Image.Source>
+                                <Binding Path="ImagPreview">
+                                    <Binding.TargetNullValue>
+                                        <Image Source="/Resources/Icons/NoPhotoIcon.jpg" />
+
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" TextAlignment="Center" 
+                                   Width="390" TextWrapping="Wrap" HorizontalAlignment="Center"
+                                   Margin="5 5" FontSize="26" Grid.Row="0"/>
+
+                        <TextBlock Text="{Binding Cost}" HorizontalAlignment="Center" 
+                                   Margin="5 5 5 15" FontSize="26" Grid.Row="2" 
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="{Binding }"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
