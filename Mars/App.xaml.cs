@@ -13,5 +13,6 @@ namespace Mars
     /// </summary>
     public partial class App : Application
     {
+        //public static Entities context = new Entities();
     }
 }

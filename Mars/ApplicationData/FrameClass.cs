@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Mars.ApplicationData
 {
-    internal class FrameClass
+    public class FrameClass
     {
         static public Frame FrameMenu;
         static public Frame FrameBody;

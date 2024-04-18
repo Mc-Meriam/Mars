@@ -46,7 +46,6 @@
                                 <Binding Path="ImagPreview">
                                     <Binding.TargetNullValue>
                                         <Image Source="/Resources/Icons/NoPhotoIcon.jpg" />
-
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
