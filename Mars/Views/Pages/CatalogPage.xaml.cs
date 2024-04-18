@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mars.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,12 @@ namespace Mars.Views.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void CreateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CreateWindow createWindow = new CreateWindow();
+            createWindow.Show();
         }
     }
 }

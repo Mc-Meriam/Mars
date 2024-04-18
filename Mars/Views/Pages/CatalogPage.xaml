@@ -13,6 +13,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="90" />
         </Grid.RowDefinitions>
         <TextBox Name="SearchTb" 
                  TextChanged="SearchTb_TextChanged"
@@ -24,7 +25,7 @@
                   Height="80"
                   Width="580"
                   HorizontalAlignment="Left" 
-                  Margin="623,0,0,0"/>
+                  Margin="629,0,0,0"/>
 
         <ListView Name="CatalogLv"
                   Grid.Row="2">
@@ -62,5 +63,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Name="CreateBtn"
+                Grid.Row="4"
+                Height="80" 
+                Width="400" 
+                Background="#FF656060"
+                Click="CreateBtn_Click"/>
     </Grid>
 </Page>
