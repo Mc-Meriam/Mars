@@ -10,23 +10,45 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" /> 
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
 
         <Button Name="ProfileBtn"
-                Height="120"
-                Width="120"
+                Height="100"
+                Width="100"
                 BorderThickness="0"
                 Click="ProfileBtn_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Image Source="/Resources/Icons/ProfileIcon.png" />
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/Mars;component/Resources/Icons/UserIcon.png" 
+                            Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="CatalogBtn"
+                Height="100"
+                Width="100"
+                Grid.Row="1"
+                BorderThickness="0"
+                Click="CatalogBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Mars;component/Resources/Icons/CatalogIcon.png" 
+                    Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="CreateBtn"
+                Height="100"
+                Width="100"
+                Grid.Row="2"
+                BorderThickness="0"
+                Click="CreateBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Mars;component/Resources/Icons/PluseIcon.png" 
+                            Stretch="Fill"/>
+            </Button.Background>
         </Button>
     </Grid>
 </Page>

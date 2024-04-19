@@ -63,8 +63,14 @@
     <Compile Include="Views\Pages\CreatePage.xaml.cs">
       <DependentUpon>CreatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\ManufacturerPage.xaml.cs">
+      <DependentUpon>ManufacturerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\CreateWindow.xaml.cs">
       <DependentUpon>CreateWindow.xaml</DependentUpon>
@@ -80,7 +86,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\ManufacturerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,10 +163,16 @@
     <Resource Include="Resources\Icons\IconMes.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\ProfileIcon.png" />
+    <Resource Include="Resources\Icons\NoPhotoIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\NoPhotoIcon.png" />
+    <Resource Include="Resources\Icons\UserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CatalogIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\PluseIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

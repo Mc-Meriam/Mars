@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace Mars.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MenuPage.xaml
+    /// Логика взаимодействия для ProfilePage.xaml
     /// </summary>
-    public partial class MenuPage : Page
+    public partial class ProfilePage : Page
     {
-        public MenuPage()
+        public ProfilePage()
         {
             InitializeComponent();
-        }
-
-        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CatalogBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CreateBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

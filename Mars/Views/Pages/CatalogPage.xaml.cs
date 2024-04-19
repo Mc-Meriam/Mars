@@ -51,5 +51,10 @@ namespace Mars.Views.Pages
             CreateWindow createWindow = new CreateWindow();
             createWindow.Show();
         }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
