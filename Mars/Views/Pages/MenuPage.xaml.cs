@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mars.ApplicationData;
+using Mars.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,17 +29,18 @@ namespace Mars.Views.Pages
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameClass.FrameBody.Navigate(new ProfilePage());
         }
 
         private void CatalogBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameClass.FrameBody.Navigate(new CatalogPage());
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateWindow createWindow = new CreateWindow();
+            createWindow.ShowDialog();
         }
     }
 }
