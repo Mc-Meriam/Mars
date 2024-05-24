@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mars.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,31 +27,28 @@ namespace Mars.Views.Windows
 
         private void ChoiceBtn_Click(object sender, RoutedEventArgs e)
         {
-            //if (LoginTb.Text == "")
-            //{
-            //    MessageBox.Show("Введите логин");
-            //}
-            //if (PhoneTb.Text == "")
-            //{
-            //    MessageBox.Show("Введите номер телефона");
-            //}
-            //if (Password1Pb.Password == "")
-            //{
-            //    MessageBox.Show("Введите пароль");
-            //}
-            //if (Password2Pb.Password == "")
-            //{
-            //    MessageBox.Show("Введите пароль, пароли должны совпадать");
-            //}
-            //User user = new User
-            //{
-            //    Login = LoginTb.Text,
-            //    Phone = PhoneTb.Text,
-            //    Password = Password1Pb.Password
-            //};
-            //App.context.User.Add(user);
-            //App.context.SaveChanges();
-            //MessageBox.Show("Пользователь добавлен!");
+            if (LoginTb.Text == "")
+            {
+                MessageBox.Show("Введите логин");
+            }
+            if (PhoneTb.Text == "")
+            {
+                MessageBox.Show("Введите номер телефона");
+            }
+            if (PasswordPb.Password == "")
+            {
+                MessageBox.Show("Введите пароль");
+            }
+            
+            User user = new User
+            {
+                Login = LoginTb.Text,
+                Phone = PhoneTb.Text,
+                Password = PasswordPb.Password
+            };
+            App.context.User.Add(user);
+            App.context.SaveChanges();
+            MessageBox.Show("Пользователь добавлен!");
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

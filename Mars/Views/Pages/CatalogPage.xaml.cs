@@ -29,21 +29,21 @@ namespace Mars.Views.Pages
 
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (SearchTb.Text != string.Empty)
-            //{
-            //    try
-            //    {
-            //        CatalogLv.ItemsSource = App.context.User.Where(u => u.Surname.Contains(SearchTb.Text)).ToList();
-            //    }
-            //    catch (Exception exeption)
-            //    {
-            //        MessageBoxHelper.Error(exeption.Message);
-            //    }
-            //}
-            //else
-            //{
-            //    CatalogLv.ItemsSource = App.context.User.ToList();
-            //}
+            if (SearchTb.Text != string.Empty)
+            {
+                try
+                {
+                    CatalogLv.ItemsSource = App.context.User.Where(u => u.Surname.Contains(SearchTb.Text)).ToList();
+                }
+                catch (Exception exeption)
+                {
+                    MessageBoxHelper.Error(exeption.Message);
+                }
+            }
+            else
+            {
+                CatalogLv.ItemsSource = App.context.User.ToList();
+            }
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)

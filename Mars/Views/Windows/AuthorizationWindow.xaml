@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Mars.Views.Windows"
         mc:Ignorable="d"
         Title="AuthorizationWindow" 
-        Height="768" Width="1366"
+        Height="740" Width="1340"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize">
     <Grid>
@@ -81,7 +81,7 @@
                  Margin="0,0,0,20"/>
 
         <Border  Grid.Row="1"
-                 Height="160"
+                 Height="140"
                  Width="600"
                  VerticalAlignment="Center"
                  Margin="10 0" 
@@ -118,7 +118,7 @@
 
 
         <Border  Grid.Row="3"
-                 Height="160"
+                 Height="140"
                  Width="600"
                  VerticalAlignment="Center"
                  Margin="10 0" 

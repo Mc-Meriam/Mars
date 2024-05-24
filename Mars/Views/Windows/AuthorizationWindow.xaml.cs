@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mars.ApplicationData;
+using Mars.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,9 +35,29 @@ namespace Mars.Views.Windows
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
-            this.Close();
+            
+            User user = App.context.User.FirstOrDefault(us => us.Login == LoginTb.Text && us.Password == PasswordPb.Password);
+
+            if (user != null)
+            {
+                switch (user.IdRole)
+                {
+                    case 1:
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                        break;
+
+                }
+                Close();
+            }
+            else
+            {
+                MessageBoxHelper.Error("Неправильно введен логин или пароль");
+            }
+            LoginTb.Text = "";
+            PasswordPb.Password = "";
         }
     }
 }
+

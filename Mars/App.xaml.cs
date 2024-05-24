@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mars.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,6 +14,6 @@ namespace Mars
     /// </summary>
     public partial class App : Application
     {
-        //public static Entities context = new Entities();
+        public static MarsisDiplomEntities context = new MarsisDiplomEntities();
     }
 }
