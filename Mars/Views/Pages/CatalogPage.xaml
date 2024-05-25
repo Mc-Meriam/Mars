@@ -6,20 +6,71 @@
       xmlns:local="clr-namespace:Mars.Views.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="752" d:DesignWidth="1241"
-      Title="CatalogPage">
+      Title="CatalogPage"
+      Loaded="Page_Loaded">
 
     <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1221*"/>
+            <ColumnDefinition Width="2570*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
             <RowDefinition Height="90" />
         </Grid.RowDefinitions>
+
+        <ListBox Name="ProductLb"
+                 Grid.Row="2"
+                 Grid.Column="2"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectionChanged="ProductLb_SelectionChanged"
+                 Padding="0">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding ElementName=ProductLb, Path=ActualWidth}"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" 
+                            BorderThickness="1" 
+                            Width="225" 
+                            Height="225">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="0.5*"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="{Binding Photo}" 
+                                   OpacityMask="{x:Null}" 
+                                   Stretch="Fill"/>
+
+                            <TextBlock Text="{Binding Cost, StringFormat={}{0} ₽}" 
+                                       Background="White" 
+                                       VerticalAlignment="Top" 
+                                       HorizontalAlignment="Right" 
+                                       FontSize="20" 
+                                       Padding="5"/>
+
+                            <TextBlock Text="{Binding Name}" 
+                                       Grid.Row="1" 
+                                       FontSize="20"
+                                       HorizontalAlignment="Center" 
+                                       TextWrapping="Wrap" 
+                                       TextAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <TextBox Name="SearchTb" 
                  TextChanged="SearchTb_TextChanged"
                  Height="80" 
                  Margin="0,0,611,0"/>
-
 
         <ComboBox Name="CategoryCmb"
                   Height="80"
@@ -27,7 +78,7 @@
                   HorizontalAlignment="Left" 
                   Margin="629,0,0,0"/>
 
-        <ListView Name="CatalogLv"
+        <!--<ListView Name="CatalogLv"
                   Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -61,6 +112,23 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+        </ListView>-->
+
+        <ListView Name="ProductLV"
+                  Grid.Row="2" 
+                  FontSize="15"
+                  Foreground="Black" 
+                  SelectionChanged="ProductLV_SelectionChanged"
+                  Margin="0,28,17,12">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название"
+                            DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Итог"
+                            DisplayMemberBinding="{Binding Cost, StringFormat={}{0}₽}"/>
+                </GridView>
+            </ListView.View>
         </ListView>
 
         <Button Name="CreateBtn"
@@ -70,15 +138,28 @@
                 Width="400" 
                 Foreground="Black"
                 Click="CreateBtn_Click" 
-                Margin="640,5,170,5"/>
+                Margin="646,5,175,5"/>
 
         <Button Name="SaveBtn"
-         Content="Сохранить выбор"
-         Grid.Row="3"
-         Height="80" 
-         Width="400" 
-         Foreground="Black"
-         Click="SaveBtn_Click" 
-                Margin="170,5,640,5"/>
+                Content="Сохранить выбор"
+                Grid.Row="3"
+                Height="80" 
+                Width="400" 
+                Foreground="Black"
+                Click="SaveBtn_Click" 
+                Margin="176,5,645,5"/>
+
+        <TextBlock Name="TotalCostTbl"
+           Grid.Row="3"
+           FontSize="20"
+           FontWeight="SemiBold" Grid.ColumnSpan="2" Margin="0,0,0,25"/>
+
+        <Button Name="AddProductBtn" 
+                Content="Добавить позицию" 
+                Click="AddProductBtn_Click"
+                Background="AquaMarine" 
+                Grid.Row="3" Grid.ColumnSpan="2"
+                Height="50" 
+                Margin="0,40" Grid.RowSpan="2"/>
     </Grid>
 </Page>

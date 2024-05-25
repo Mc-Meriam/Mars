@@ -1,4 +1,6 @@
-﻿using Mars.Models;
+﻿using Mars.ApplicationData;
+using Mars.Models;
+using Mars.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,28 +29,40 @@ namespace Mars.Views.Windows
 
         private void ChoiceBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (LoginTb.Text == "")
+            if (string.IsNullOrEmpty(LoginTb.Text) 
+                ||string.IsNullOrEmpty(PhoneTb.Text)
+                || string.IsNullOrEmpty(PasswordPb.Password))
             {
-                MessageBox.Show("Введите логин");
+                MessageBoxHelper.Warning("Заполните все поля!");
             }
-            if (PhoneTb.Text == "")
+            else
             {
-                MessageBox.Show("Введите номер телефона");
+                try
+                {
+                    User user = new User
+                    {
+                        Login = LoginTb.Text,
+                        Phone = PhoneTb.Text,
+                        Password = PasswordPb.Password,
+                        IdRole = 1
+                    };
+                    App.context.User.Add(user);
+                    App.context.SaveChanges();
+                    MessageBox.Show("Пользователь добавлен!");
+
+                    LoginTb.Text = "";
+                    PhoneTb.Text = "";
+                    PasswordPb.Password = "";
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+
+                    this.Close();
+                }
+                catch (Exception exception)
+                {
+                    MessageBoxHelper.Error(exception.Message);
+                }
             }
-            if (PasswordPb.Password == "")
-            {
-                MessageBox.Show("Введите пароль");
-            }
-            
-            User user = new User
-            {
-                Login = LoginTb.Text,
-                Phone = PhoneTb.Text,
-                Password = PasswordPb.Password
-            };
-            App.context.User.Add(user);
-            App.context.SaveChanges();
-            MessageBox.Show("Пользователь добавлен!");
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
