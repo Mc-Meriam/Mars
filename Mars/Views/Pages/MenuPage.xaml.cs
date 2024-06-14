@@ -1,4 +1,5 @@
 ﻿using Mars.ApplicationData;
+using Mars.Models;
 using Mars.Views.Windows;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,35 @@ using System.Windows.Shapes;
 
 namespace Mars.Views.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для MenuPage.xaml
-    /// </summary>
     public partial class MenuPage : Page
     {
-        public MenuPage()
+        User currentUserRole;
+
+        public MenuPage(User currentUser)
         {
             InitializeComponent();
+            currentUserRole = currentUser;
+
+            UpdateButtonVisibility();
+        }
+
+        private void UpdateButtonVisibility()
+        {
+            if (currentUserRole != null)
+            {
+                if (currentUserRole.IdRole == 1)
+                {
+                    CreateBtn.Visibility = Visibility.Hidden;
+                }
+                else if (currentUserRole.IdRole == 2)
+                {
+                    CreateBtn.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                CreateBtn.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
@@ -41,6 +63,12 @@ namespace Mars.Views.Pages
         {
             CreateWindow createWindow = new CreateWindow();
             createWindow.ShowDialog();
+        }
+
+        public void UpdateUserRole(User newUser)
+        {
+            currentUserRole = newUser;
+            UpdateButtonVisibility();
         }
     }
 }

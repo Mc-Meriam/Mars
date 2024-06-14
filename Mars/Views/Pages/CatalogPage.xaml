@@ -11,22 +11,24 @@
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1221*"/>
-            <ColumnDefinition Width="2570*"/>
+            <ColumnDefinition Width="938*"/>
+            <ColumnDefinition Width="283*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="10" />
+            <RowDefinition Height="10"/>
             <RowDefinition Height="*" />
             <RowDefinition Height="90" />
         </Grid.RowDefinitions>
 
         <ListBox Name="ProductLb"
                  Grid.Row="2"
-                 Grid.Column="2"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                  SelectionChanged="ProductLb_SelectionChanged"
-                 Padding="0">
+                 Padding="0" 
+                 Height="563" 
+                 VerticalAlignment="Center" 
+                 Margin="64,0,64,0" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Width="{Binding ElementName=ProductLb, Path=ActualWidth}"/>
@@ -67,16 +69,20 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <TextBlock Name="TotalCostTbl"
+                   Grid.Row="3"
+                   Grid.Column="2"/>
+        
         <TextBox Name="SearchTb" 
-                 TextChanged="SearchTb_TextChanged"
-                 Height="80" 
-                 Margin="0,0,611,0"/>
+                 TextChanged="SearchTb_TextChanged" 
+                 Margin="64,0,448,10" 
+                 Grid.RowSpan="2"/>
 
         <ComboBox Name="CategoryCmb"
-                  Height="80"
-                  Width="580"
+                  Width="370"
                   HorizontalAlignment="Left" 
-                  Margin="629,0,0,0"/>
+                  Margin="502,0,0,10" Grid.RowSpan="2"/>
 
         <!--<ListView Name="CatalogLv"
                   Grid.Row="2">
@@ -119,47 +125,26 @@
                   FontSize="15"
                   Foreground="Black" 
                   SelectionChanged="ProductLV_SelectionChanged"
-                  Margin="0,28,17,12">
+                  Grid.Column="1" Margin="10,10,10,10" d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Название"
-                            DisplayMemberBinding="{Binding Name}"/>
+                                    Width="180"
+                                    DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Итог"
-                            DisplayMemberBinding="{Binding Cost, StringFormat={}{0}₽}"/>
+                                    DisplayMemberBinding="{Binding Cost, StringFormat={}{0}₽}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
         <Button Name="CreateBtn"
-                Content="Создать заказ"
-                Grid.Row="3"
-                Height="80" 
-                Width="400" 
+                Content="Создать запрос"
+                Grid.Row="3" 
                 Foreground="Black"
                 Click="CreateBtn_Click" 
-                Margin="646,5,175,5"/>
+                Height="80"
+                Width="250"/>
 
-        <Button Name="SaveBtn"
-                Content="Сохранить выбор"
-                Grid.Row="3"
-                Height="80" 
-                Width="400" 
-                Foreground="Black"
-                Click="SaveBtn_Click" 
-                Margin="176,5,645,5"/>
-
-        <TextBlock Name="TotalCostTbl"
-           Grid.Row="3"
-           FontSize="20"
-           FontWeight="SemiBold" Grid.ColumnSpan="2" Margin="0,0,0,25"/>
-
-        <Button Name="AddProductBtn" 
-                Content="Добавить позицию" 
-                Click="AddProductBtn_Click"
-                Background="AquaMarine" 
-                Grid.Row="3" Grid.ColumnSpan="2"
-                Height="50" 
-                Margin="0,40" Grid.RowSpan="2"/>
     </Grid>
 </Page>

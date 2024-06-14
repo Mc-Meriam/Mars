@@ -1,4 +1,5 @@
 ﻿using Mars.ApplicationData;
+using Mars.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,10 @@ namespace Mars
         public MainWindow()
         {
             InitializeComponent();
+
+            User currentUser = new User(); // Пример создания экземпляра текущего пользователя
             FrameClass.FrameMenu = FrameMenuMain;
-            FrameMenuMain.Navigate(new Views.Pages.MenuPage());
+            FrameMenuMain.Navigate(new Views.Pages.MenuPage(currentUser));
 
             FrameClass.FrameBody = FrameBodyMain;
             FrameBodyMain.Navigate(new Views.Pages.CatalogPage());

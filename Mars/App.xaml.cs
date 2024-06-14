@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace Mars
 {
@@ -15,5 +16,7 @@ namespace Mars
     public partial class App : Application
     {
         public static MarsisDiplomEntities context = new MarsisDiplomEntities();
+
+        public static Product selectedProduct;
     }
 }

@@ -32,17 +32,30 @@ namespace Mars.Views.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ProductLb.ItemsSource = App.context.Product.ToList();
+            ProductLV.SelectedItem = App.context.Product.ToList();
         }
         private string GetTotalCost()
         {
-            totalCost = 0;
-            foreach (Product product in ProductLV.Items)
+            try
             {
-                totalCost += product.Cost;
+                totalCost = 0;
+                if (ProductLV.Items != null)
+                {
+                    foreach (var item in ProductLV.Items)
+                    {
+                        if (item is Product product)
+                        {
+                            totalCost += product.Cost;
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBoxHelper.Error(exception.Message);
             }
             return "К оплате: " + totalCost + "₽";
         }
-
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             //if (SearchTb.Text != string.Empty)
@@ -60,6 +73,14 @@ namespace Mars.Views.Pages
             //{
             //    CatalogLv.ItemsSource = App.context.User.ToList();
             //}
+            if (SearchTb.Text != string.Empty)
+            {
+                ProductLb.ItemsSource = App.context.Product.Where(p => p.Name.Contains(SearchTb.Text)).ToList();
+            }
+            else
+            {
+                ProductLb.ItemsSource = App.context.Product.ToList();
+            }
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
@@ -68,17 +89,12 @@ namespace Mars.Views.Pages
             createWindow.Show();
         }
 
-        private void SaveBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ProductLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //!!! добавлять только не пустые элементы!!!
             if (ProductLb.SelectedItem as Product!= null)
             {
-                ProductLV.Items.Add(ProductLV.SelectedItem as Product);
+                ProductLV.Items.Add(ProductLb.SelectedItem as Product);
                 TotalCostTbl.Text = GetTotalCost();
             }
             //сбросить выбор элемента из списка
@@ -87,11 +103,23 @@ namespace Mars.Views.Pages
 
         private void ProductLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ProductLV.Items.Remove(ProductLV.SelectedItem as Product);
+            try
+            {
+                ProductLV.Items.Remove(ProductLV.SelectedItem as Product);
+            }
+            catch(Exception exception)
+            {
+                MessageBoxHelper.Error(exception.Message);
+            }
             TotalCostTbl.Text = GetTotalCost();
         }
 
         private void AddProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

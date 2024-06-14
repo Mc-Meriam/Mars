@@ -35,26 +35,21 @@ namespace Mars.Views.Windows
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            
             User user = App.context.User.FirstOrDefault(us => us.Login == LoginTb.Text && us.Password == PasswordPb.Password);
 
             if (user != null)
             {
-                switch (user.IdRole)
-                {
-                    case 1:
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        this.Close();
-                        break;
+                LoginUser.Instance.SetLoginUser(user);
 
-                }
-                Close();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
             }
             else
             {
                 MessageBoxHelper.Error("Неправильно введен логин или пароль");
             }
+
             LoginTb.Text = "";
             PasswordPb.Password = "";
         }

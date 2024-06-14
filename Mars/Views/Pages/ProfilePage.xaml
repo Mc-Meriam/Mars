@@ -32,11 +32,12 @@
                  Height="80"
                  Width="500"
                  VerticalAlignment="Center"
-                 HorizontalAlignment="Right"/>
+                 HorizontalAlignment="Right"
+                 />
 
         <TextBlock Text="Фамилия"
                    Grid.Row="2"/>
-        <TextBox Name="SsurnameTb"
+        <TextBox Name="SurnameTb"
                  Grid.Row="2"
                  Height="80"
                  Width="500"
@@ -76,6 +77,7 @@
                    Margin="3,0,0,0"/>
         <CheckBox Content="Покупатель"
                   Grid.Row="10"
+                  IsChecked="{Binding UserRole}"
                   VerticalAlignment="Top"
                   HorizontalAlignment="Left"
                   Width="250" Margin="9,54,0,0"/>
