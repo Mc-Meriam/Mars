@@ -1,0 +1,94 @@
+﻿<Page x:Class="Mars.Views.Pages.ManufacturerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Mars.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="752" d:DesignWidth="1241"
+      Title="Страница производителя">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+
+        <ListView Name="CatalogLv"
+                  Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10" Width="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="310" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Image Width="400" Grid.Row="1" 
+                               Stretch="UniformToFill" 
+                               HorizontalAlignment="Center" 
+                               Margin="5">
+                            <Image.Source>
+                                <Binding Path="ImagPreview">
+                                    <Binding.TargetNullValue>
+                                        <Image Source="/Resources/Icons/NoPhotoIcon.jpg" />
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" TextAlignment="Center" 
+                                   Width="390" TextWrapping="Wrap" HorizontalAlignment="Center"
+                                   Margin="5 5" FontSize="26" Grid.Row="0"/>
+
+                        <TextBlock Text="{Binding Cost}" HorizontalAlignment="Center" 
+                                   Margin="5 5 5 15" FontSize="26" Grid.Row="2" 
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="{Binding }"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Name="EventGrid"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="1"
+                       Text="Статус:" 
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top" 
+                       Margin="0,14,0,0"/>
+            <CheckBox Grid.Column="1"
+                VerticalAlignment="Bottom"
+                      IsChecked="{Binding IsComplite}"
+                      Content="Завершен"/>
+
+            <Button Name="SaveBtn" 
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="250"
+                    Height="80"
+                    Content="Сохранить изменения"
+                    Click="SaveBtn_Click"/>
+
+            <Button Name="AddProductBtn" 
+                    Grid.Row="2"
+                    Width="250"
+                    Height="80"
+                    Content="Добавить товар"
+                    Click="AddProductBtn_Click"
+                    VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Page>

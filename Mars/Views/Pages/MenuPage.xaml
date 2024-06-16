@@ -1,0 +1,55 @@
+﻿<Page x:Class="Mars.Views.Pages.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Mars.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="752" d:DesignWidth="125"
+      Title="MenuPage"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <Button Name="ProfileBtn"
+                Height="100"
+                Width="100"
+                BorderThickness="0"
+                Click="ProfileBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Mars;component/Resources/Icons/UserIcon.png" 
+                            Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="CatalogBtn"
+                Height="100"
+                Width="100"
+                Grid.Row="1"
+                BorderThickness="0"
+                Click="CatalogBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Mars;component/Resources/Icons/CatalogIcon.png" 
+                    Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="CreateBtn"
+                Height="100"
+                Width="100"
+                Grid.Row="2"
+                BorderThickness="0"
+                Click="CreateBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Mars;component/Resources/Icons/PluseIcon.png" 
+                            Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>
