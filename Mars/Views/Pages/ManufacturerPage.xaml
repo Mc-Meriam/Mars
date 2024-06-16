@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="752" d:DesignWidth="1241"
       Title="Страница производителя">
-
+ 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
