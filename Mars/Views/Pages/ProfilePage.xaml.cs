@@ -23,7 +23,7 @@ namespace Mars.Views.Pages
         {
             InitializeComponent();
 
-            // Заполнение полей данными о текущем пользователе
+            // Заполнение полей данными о текущем пользователе 
             LoginUser currentUser = LoginUser.Instance;
             NameTb.Text = currentUser.NameU;
             LoginTb.Text = currentUser.LoginU;
